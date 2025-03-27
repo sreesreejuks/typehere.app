@@ -66,7 +66,7 @@ const TextEditor = () => {
         className={styles.editor}
         value={text}
         onChange={handleChange}
-        placeholder="Type here..."
+        placeholder="Start typing..."
         spellCheck="false"
         autoFocus
       />
