@@ -1,318 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
 * {
-  padding: 0px;
-  margin: 0px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: 'Berkeley Mono', 'JetBrains Mono', monospace;
 }
 
-.ace_comment,
-.ace_placeholder {
-  font-family: 'Berkeley Mono', 'JetBrains Mono', monospace !important;
-  padding: 0px 8px !important;
-}
-
-/* Hide scrollbar for Webkit (Chrome, Safari) and IE, Edge, and Firefox */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
 :root {
+  --light-color: #ffffff;
+  --dark-color: #000000;
   --border-color: #cccccc;
   --hover-background-color: #f0f0f0;
-  --note-background-color: #fefefe;
-  --note-selected-background-color: #eaeaea;
-  --delete-btn-background-color: #ff4d4d;
-  --delete-btn-hover-background-color: #ff0000;
-  --timestamp-color: #666666;
-  --overlay-background-color: rgba(0, 0, 0, 0.5);
   --box-shadow-color: rgba(0, 0, 0, 0.1);
-  --untitled-note-title-color: #66666699; /* Removed quotes for consistency */
-  --keyboard-key-color: rgba(40, 40, 33, 0.836);
-  --dark-color: #000000;
-  --secondary-dark-color: #aaa;
-  --light-color: #ffffff;
-  --on-fill-color: #ffffff;
-  --pin-color: #f57d1f;
-  --hidden-color: #005490d0;
+  --text-color: #333333;
 }
 
 :root[data-theme='dark'] {
+  --light-color: #121212;
+  --dark-color: #ffffff;
   --border-color: #555555;
   --hover-background-color: #333333;
-  --note-background-color: #222222;
-  --note-selected-background-color: #555555;
-  --delete-btn-background-color: #fe3f3f; /* Weaker red for dark mode */
-  --delete-btn-hover-background-color: #ff2020; /* Slightly stronger red for hover in dark mode */
-  --timestamp-color: #cccccc;
-  --overlay-background-color: rgba(
-    0,
-    0,
-    0,
-    0.7
-  ); /* Increased opacity for better visibility */
-  --box-shadow-color: rgba(
-    0,
-    0,
-    0,
-    0.2
-  ); /* Increased shadow for better visibility */
-  --untitled-note-title-color: #99999966; /* Removed quotes for consistency */
-  --keyboard-key-color: rgba(40, 40, 33, 0.836);
-  --dark-color: #ffffff;
-  --secondary-dark-color: #555;
-  --light-color: #121212;
-  --on-fill-color: #ffffff;
-  --pin-color: #fda403;
-  --hidden-color: #5fb2ee78;
+  --box-shadow-color: rgba(0, 0, 0, 0.2);
+  --text-color: #e0e0e0;
 }
 
-html,
-body,
-main {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  background: var(--note-background-color);
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-input {
-  color: var(--dark-color);
-  background: var(--note-background-color);
-}
-
-.ace_cursor {
-  /* background-color: white;
-  border: 1px solid white !important; */
-  color: black !important;
-}
-
-.normal-mode .ace_cursor {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.normal-mode .ace_hidden-cursors .ace_cursor {
-  border-color: rgba(0, 0, 0, 0.2);
-}
-
-[data-theme='dark'] .ace_cursor {
-  color: white !important;
-}
-
-[data-theme='dark'] .normal-mode .ace_cursor {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-[data-theme='dark'] .normal-mode .ace_hidden-cursors .ace_cursor {
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-#editor {
-  width: 100vw;
-  height: 100vh;
-  overflow: auto;
-  border: none;
-  padding: 2rem;
-  font-size: 1rem;
-  resize: none;
-  line-height: 1.5;
-  color: var(--dark-color);
-  background: var(--note-background-color);
-}
-
-#controls {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-  position: fixed;
-  bottom: 0px;
-  right: 0px;
-  margin: 8px;
-  transition: right 0.3s ease;
-}
-
-/* Add this new rule */
-body.show-scrollbar #controls {
-  right: 16px; /* Adjust this value as needed */
-}
-
-#controls button {
-  cursor: pointer;
-  background: none;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  padding: 2px 4px;
-  color: var(--dark-color);
-  background: var(--light-color);
-}
-
-#controls button:hover {
-  background-color: var(--hover-background-color);
-}
-
-.notes-list {
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 4px;
-  padding: 4px;
-  border-radius: 6px;
-  border: 1px solid var(--border-color);
-  max-height: 50vh;
-  overflow: auto;
-}
-
-.note-list-item {
-  padding: 6px 8px;
-  background-color: var(--note-background-color);
-  cursor: pointer;
-  border-radius: 4px;
+#root {
   width: 100%;
-  display: flex;
-  border: 1px solid transparent;
-  flex-direction: column;
-  gap: 4px;
-  color: var(--dark-color);
+  height: 100vh;
 }
 
-.note-list-item:hover {
-  border-color: var(--border-color);
-}
-
-.note-list-item-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
-  gap: 4px;
-}
-
-.note-list-item-title {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  /* display: flex; */
-  /* align-items: center; */
-}
-
-.note-list-item-delete-btn {
-  cursor: pointer;
-  background-color: var(
-    --delete-btn-background-color
-  ); /* Use CSS variable for consistency */
-  border: none;
-  border-radius: 4px;
-  color: var(--on-fill-color);
-  padding: 2px 4px;
-  font-size: 0.8rem;
-  margin-left: 4px; /* Ensure spacing between text and button */
-}
-
-[data-theme='dark'] .note-list-item-delete-btn {
-  opacity: 0.8;
-}
-
-.note-list-item-delete-btn:hover {
-  background-color: var(
-    --delete-btn-hover-background-color
-  ); /* Use CSS variable for consistency */
-}
-
-.note-list-item-timestamp {
-  font-size: 0.8rem;
-  color: var(--timestamp-color); /* Corrected variable name */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.empty-note {
-  color: var(--timestamp-color); /* Corrected variable name */
-  font-style: italic;
-}
-
-.more-menu {
-  display: flex;
-  flex-direction: column;
-  padding: 2px;
-  gap: 2px;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  z-index: 100;
-  background-color: var(--light-color);
-  border: 1px solid var(--border-color);
-  box-shadow: 0 4px 6px var(--box-shadow-color);
-  border-radius: 6px;
-}
-
-.more-menu button {
-  text-align: start;
-  border-radius: 2px !important;
-  border: none !important;
-  padding: 2px 4px;
-}
-
-.help-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid var(--border-color);
-  max-height: 50vh;
-  overflow: auto;
-  position: fixed;
-  z-index: 11;
-  top: 50%;
-  left: 50%;
-  background: var(--note-background-color);
-  transform: translate(-50%, -50%);
-  color: var(--dark-color);
-}
-
-.help-menu-shortcuts {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.help-menu-shortcuts-item {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-}
-
-.help-menu-shortcuts-keys {
-  display: flex;
-  gap: 2px;
-  align-items: center;
-}
-
-.help-menu-shortcuts-keys kbd {
-  background-color: var(--keyboard-key-color);
-  color: var(--on-fill-color);
-  padding: 2px 4px;
-  border-radius: 4px;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-  font-size: 0.85rem;
-  font-weight: bold;
-}
-
-* button {
-  cursor: pointer;
-}
-
-.ace_placeholder {
-  padding-top: 32px !important;
-}
-
-.ace_search {
-  transform: scale(0.888888888);
-  transform-origin: top right;
+body.show-scrollbar .clock-container {
+  right: 16px;
 }

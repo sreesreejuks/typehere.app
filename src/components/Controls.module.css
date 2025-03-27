@@ -1,0 +1,99 @@
+.clockContainer {
+  color: #000000;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 8px;
+  transition: right 0.3s ease;
+}
+
+.moreContainer {
+  position: relative;
+  margin-left: 4px;
+}
+
+.moreButton {
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  color: #000000;
+  cursor: pointer;
+  font-size: 1.0rem;
+  padding: 1px 4px;
+  opacity: 1;
+  transition: all 0.2s ease;
+  font-family: 'Berkeley Mono', 'JetBrains Mono', monospace;
+  line-height: 1;
+  margin-bottom: -1px;
+}
+
+.moreButton:hover {
+  opacity: 1;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.moreMenu {
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+  gap: 2px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: var(--light-color);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px var(--box-shadow-color);
+  border-radius: 6px;
+  margin: 8px;
+}
+
+.moreMenu button {
+  text-align: start;
+  border-radius: 2px !important;
+  border: none !important;
+  padding: 2px 4px;
+  color: var(--text-color);
+  background: var(--light-color);
+  cursor: pointer;
+  font-family: 'Berkeley Mono', 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+.moreMenu button:hover {
+  background-color: var(--hover-background-color);
+}
+
+/* Dark Theme Support */
+:root[data-theme='dark'] .moreMenu {
+  background-color: var(--light-color);
+}
+
+:root[data-theme='dark'] .moreMenu button {
+  color: var(--text-color);
+  background: var(--light-color);
+}
+
+:root[data-theme='dark'] .moreMenu button:hover {
+  background-color: var(--hover-background-color);
+}
+
+.menuDivider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 2px 0;
+} 

@@ -1,0 +1,28 @@
+.editorContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background-color: var(--note-background-color);
+  position: relative;
+}
+
+.editor {
+  width: 100%;
+  height: 100%;
+  padding: 32px 40px;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: 'Berkeley Mono', 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #000000;
+  background-color: transparent;
+}
+
+.editor::placeholder {
+  color: #000000;
+  font-family: 'Berkeley Mono', 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  line-height: 1.5;
+} 

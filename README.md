@@ -1,41 +1,101 @@
-# Type Here: A Powerful Textarea
+# Type Here
 
-A textarea (with vim)
+A minimal, fast, and elegant text editor built with React and TypeScript. Features automatic saving and a clean interface for distraction-free writing.
 
-<img width="2560" alt="image" src="https://github.com/shaoruu/typehere.app/assets/35216312/4fdcbb50-6d84-48f4-88d8-07e5f3547a92">
+## Features
 
-## Inspirations
+- 📝 Clean, minimal text editor interface
+- 💾 Automatic content saving using localStorage
+- ⏰ Real-time clock with 12-hour format
+- 🌍 Time display adapts to user's locale
+- 🔄 Time updates every 10 seconds and on tab focus
+- 📤 Export content as .txt files
+- 📥 Import content from .txt files
+- ✨ Cursor position preservation while typing
+- 🧹 Quick "New page" feature to start fresh
 
-I used to use typehere.co a lot until the site was taken down, so I created [typehere.app](https://typehere.app). For a long while, it was also just a textarea that saved its contents to `localStorage`, but recently I've decided to add more features that I would find useful myself.
+## Tech Stack
 
-## How To Use
+- React 18
+- TypeScript
+- CSS Modules
+- Vite
 
-- Most things are in the ctrl/cmd-K menu. I will call it cmd-K for this guide.
-- Cmd-K uses fuzzy search. There are two types of things that cmd-K has: notes and commands.
-  - Notes are the notes you've created, commands are things like theme toggle, vim toggle, show/hide scrollbar, import/export, etc.
-- Navigate in the Cmd-K menu by up/down arrows.
-- Create a new note by typing the note title and run the create note command.
-  - Or you could do cmd+shift+enter. 
-- Enter a note or run a command by pressing "Enter" or clicking on it.
-- Workspaces is the way to separate notes into different "groups" under cmd-K.
-  - You can create a workspace by doing cmd-K, type in a workspace name, and "Create workspace". This creates a workspace with an empty note.
-  - You can switch between workspaces in cmd-K by doing left/right arrow keys.
-  - You can also switch between workspace by just typing in the workspace name you want to go to and run the command.
-  - You can select a note you want (arrow up/down), and cmd + left/right arrow to move it between workspace.
-  - If there are no notes in a workspace, the workspace is automatically deleted. Under the hood, each note has a workspace string, and all workspace is just a set of all the notes workspaces.
-- For vim/keyboard-only users (like me)
-  - Toggle vim by doing cmd-K, toggle vim.
-  - Arrow up/down keys work the same as cmd+J/K inside the cmd-K menu.
-  - Cmd+B to open a note. This means to switch between the top two notes, hold cmd, and press K-J-B.
-  - Cmd+U/I to switch between workspaces.
-  - Cmd+E to toggle narrow screen view.
-  - Cmd+G to pin a note to all workspaces. this means the note will be displayed no matter which workspace you're in.
-  - Cmd+H to hide a note. In order to access hidden notes, you need to type the first 5 characters of the title right in the cmd-K menu.
+## Getting Started
 
-## Other Features
+### Prerequisites
 
-- Offline mode 
-- Everything client-side, all in `localStorage`
-- Periodically backed up to `indexedDB` (also in your browser)
-- Import/export notes
-- Desktop app (build on own machine)
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/sreesreejuks/typehere.app.git
+cd typehere.app
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+4. Open [http://localhost:5173](http://localhost:5173) in your browser
+
+### Building for Production
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+## Usage
+
+1. **Text Editor**:
+   - Start typing in the main editor area
+   - Content automatically saves as you type
+   - Cursor position is preserved during edits
+
+2. **Time Display**:
+   - Shows current time in [month day, hour:minute period] format
+   - Updates every 10 seconds
+   - Updates when returning to the tab
+   - Adapts to your local time format
+
+3. **More Menu Options**:
+   - Export as .txt: Save your content to a text file
+   - Import .txt: Load content from a text file
+   - New page: Clear all content and start fresh
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Author
+
+- [sreesreejuks](https://github.com/sreesreejuks)
+
+## Support
+
+If you find this project helpful, please give it a ⭐️!
